@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D93A7E4729E9A7A300365318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4629E9A7A300365318 /* AppDelegate.swift */; };
+		D93A7E4929E9A7A300365318 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4829E9A7A300365318 /* SceneDelegate.swift */; };
+		D93A7E4B29E9A7A300365318 /* DrugsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4A29E9A7A300365318 /* DrugsListViewController.swift */; };
+		D93A7E5029E9A7A600365318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93A7E4F29E9A7A600365318 /* Assets.xcassets */; };
+		D93A7E5329E9A7A600365318 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93A7E5129E9A7A600365318 /* LaunchScreen.storyboard */; };
+		D93A7E5C29E9A7EC00365318 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D93A7E5B29E9A7EC00365318 /* SnapKit */; };
+		D93A7E6529E9A85000365318 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E6429E9A85000365318 /* UIVIew+Extension.swift */; };
+		D93A7E6829E9A8A400365318 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E6729E9A8A400365318 /* ApiClient.swift */; };
+		D93A7E6B29E9A8EC00365318 /* DrugsListApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E6A29E9A8EC00365318 /* DrugsListApiClient.swift */; };
+		D93A7E6E29E9A9C200365318 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E6D29E9A9C200365318 /* CollectionView.swift */; };
+		D93A7E7129E9A9F100365318 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E7029E9A9F100365318 /* Section.swift */; };
+		D93A7E7329E9AA0600365318 /* SectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E7229E9AA0500365318 /* SectionFactory.swift */; };
+		D93A7E7529E9AA1C00365318 /* ConcreteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E7429E9AA1C00365318 /* ConcreteSection.swift */; };
+		D93A7E7B29E9AA8700365318 /* DrugsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E7A29E9AA8700365318 /* DrugsListView.swift */; };
+		D93A7E7E29E9AAD400365318 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E7D29E9AAD400365318 /* UICollectionReusableView+Extension.swift */; };
+		D93A7E8029E9AB7100365318 /* DrugsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E7F29E9AB7100365318 /* DrugsListViewModel.swift */; };
+		D93A7E8329E9AE9300365318 /* DrugsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E8229E9AE9300365318 /* DrugsResponse.swift */; };
+		D93A7E8529E9AED200365318 /* DrugsCategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E8429E9AED200365318 /* DrugsCategoriesResponse.swift */; };
+		D93A7E8729E9AF3000365318 /* FieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E8629E9AF3000365318 /* FieldsResponse.swift */; };
+		D93A7E8929E9B03D00365318 /* FieldFlagsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E8829E9B03D00365318 /* FieldFlagsResponse.swift */; };
+		D93A7E8C29E9DE1900365318 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E8B29E9DE1900365318 /* Box.swift */; };
+		D93A7E8F29E9DF5C00365318 /* DrugsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E8E29E9DF5C00365318 /* DrugsCollectionCell.swift */; };
+		D93A7E9229E9ED2300365318 /* CollectionViewLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E9129E9ED2300365318 /* CollectionViewLayoutFactory.swift */; };
+		D93A7E9529E9F02A00365318 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E9429E9F02A00365318 /* NavigationBar.swift */; };
+		D93A7E9829E9F29900365318 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E9729E9F29900365318 /* Colors.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D93A7E4329E9A7A300365318 /* DrugsForPlants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrugsForPlants.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D93A7E4629E9A7A300365318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D93A7E4829E9A7A300365318 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D93A7E4A29E9A7A300365318 /* DrugsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsListViewController.swift; sourceTree = "<group>"; };
+		D93A7E4F29E9A7A600365318 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D93A7E5229E9A7A600365318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D93A7E5429E9A7A600365318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D93A7E6429E9A85000365318 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
+		D93A7E6729E9A8A400365318 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		D93A7E6A29E9A8EC00365318 /* DrugsListApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsListApiClient.swift; sourceTree = "<group>"; };
+		D93A7E6D29E9A9C200365318 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		D93A7E7029E9A9F100365318 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		D93A7E7229E9AA0500365318 /* SectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFactory.swift; sourceTree = "<group>"; };
+		D93A7E7429E9AA1C00365318 /* ConcreteSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreteSection.swift; sourceTree = "<group>"; };
+		D93A7E7A29E9AA8700365318 /* DrugsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsListView.swift; sourceTree = "<group>"; };
+		D93A7E7D29E9AAD400365318 /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
+		D93A7E7F29E9AB7100365318 /* DrugsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsListViewModel.swift; sourceTree = "<group>"; };
+		D93A7E8229E9AE9300365318 /* DrugsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsResponse.swift; sourceTree = "<group>"; };
+		D93A7E8429E9AED200365318 /* DrugsCategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsCategoriesResponse.swift; sourceTree = "<group>"; };
+		D93A7E8629E9AF3000365318 /* FieldsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsResponse.swift; sourceTree = "<group>"; };
+		D93A7E8829E9B03D00365318 /* FieldFlagsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldFlagsResponse.swift; sourceTree = "<group>"; };
+		D93A7E8B29E9DE1900365318 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		D93A7E8E29E9DF5C00365318 /* DrugsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsCollectionCell.swift; sourceTree = "<group>"; };
+		D93A7E9129E9ED2300365318 /* CollectionViewLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutFactory.swift; sourceTree = "<group>"; };
+		D93A7E9429E9F02A00365318 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		D93A7E9729E9F29900365318 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D93A7E4029E9A7A300365318 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D93A7E5C29E9A7EC00365318 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D93A7E3A29E9A7A300365318 = {
+			isa = PBXGroup;
+			children = (
+				D93A7E4529E9A7A300365318 /* DrugsForPlants */,
+				D93A7E4429E9A7A300365318 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D93A7E4429E9A7A300365318 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E4329E9A7A300365318 /* DrugsForPlants.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D93A7E4529E9A7A300365318 /* DrugsForPlants */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E5F29E9A80900365318 /* Resources */,
+				D93A7E5D29E9A7F400365318 /* Source */,
+				D93A7E6029E9A81200365318 /* Supporting Files */,
+			);
+			path = DrugsForPlants;
+			sourceTree = "<group>";
+		};
+		D93A7E5D29E9A7F400365318 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E5E29E9A7F900365318 /* App Delegates */,
+				D93A7E6129E9A83200365318 /* Modules */,
+				D93A7E6229E9A83C00365318 /* Core */,
+				D93A7E6329E9A84400365318 /* UI */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D93A7E5E29E9A7F900365318 /* App Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E4829E9A7A300365318 /* SceneDelegate.swift */,
+				D93A7E4629E9A7A300365318 /* AppDelegate.swift */,
+			);
+			path = "App Delegates";
+			sourceTree = "<group>";
+		};
+		D93A7E5F29E9A80900365318 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E4F29E9A7A600365318 /* Assets.xcassets */,
+				D93A7E5129E9A7A600365318 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D93A7E6029E9A81200365318 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E5429E9A7A600365318 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D93A7E6129E9A83200365318 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E7929E9AA7500365318 /* DrugsList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D93A7E6229E9A83C00365318 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E8A29E9DE1000365318 /* Box */,
+				D93A7E8129E9AE0D00365318 /* ResponseModels */,
+				D93A7E6629E9A89B00365318 /* Api */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D93A7E6329E9A84400365318 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E9629E9F29200365318 /* Common */,
+				D93A7E9329E9F02000365318 /* Bar */,
+				D93A7E6C29E9A9B700365318 /* CollectionView */,
+				D93A7E7C29E9AAC100365318 /* Extensions */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D93A7E6629E9A89B00365318 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E6729E9A8A400365318 /* ApiClient.swift */,
+				D93A7E6929E9A8C500365318 /* ApiClients */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		D93A7E6929E9A8C500365318 /* ApiClients */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E6A29E9A8EC00365318 /* DrugsListApiClient.swift */,
+			);
+			path = ApiClients;
+			sourceTree = "<group>";
+		};
+		D93A7E6C29E9A9B700365318 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E6D29E9A9C200365318 /* CollectionView.swift */,
+				D93A7E8D29E9DF4E00365318 /* Cells */,
+				D93A7E6F29E9A9D300365318 /* Section */,
+				D93A7E9029E9ED0900365318 /* Layout */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		D93A7E6F29E9A9D300365318 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E7029E9A9F100365318 /* Section.swift */,
+				D93A7E7229E9AA0500365318 /* SectionFactory.swift */,
+				D93A7E7429E9AA1C00365318 /* ConcreteSection.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		D93A7E7929E9AA7500365318 /* DrugsList */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E4A29E9A7A300365318 /* DrugsListViewController.swift */,
+				D93A7E7F29E9AB7100365318 /* DrugsListViewModel.swift */,
+				D93A7E7A29E9AA8700365318 /* DrugsListView.swift */,
+			);
+			path = DrugsList;
+			sourceTree = "<group>";
+		};
+		D93A7E7C29E9AAC100365318 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E6429E9A85000365318 /* UIVIew+Extension.swift */,
+				D93A7E7D29E9AAD400365318 /* UICollectionReusableView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D93A7E8129E9AE0D00365318 /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E8229E9AE9300365318 /* DrugsResponse.swift */,
+				D93A7E8429E9AED200365318 /* DrugsCategoriesResponse.swift */,
+				D93A7E8629E9AF3000365318 /* FieldsResponse.swift */,
+				D93A7E8829E9B03D00365318 /* FieldFlagsResponse.swift */,
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		D93A7E8A29E9DE1000365318 /* Box */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E8B29E9DE1900365318 /* Box.swift */,
+			);
+			path = Box;
+			sourceTree = "<group>";
+		};
+		D93A7E8D29E9DF4E00365318 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E8E29E9DF5C00365318 /* DrugsCollectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D93A7E9029E9ED0900365318 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E9129E9ED2300365318 /* CollectionViewLayoutFactory.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		D93A7E9329E9F02000365318 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E9429E9F02A00365318 /* NavigationBar.swift */,
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
+		D93A7E9629E9F29200365318 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E9729E9F29900365318 /* Colors.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D93A7E4229E9A7A300365318 /* DrugsForPlants */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D93A7E5729E9A7A600365318 /* Build configuration list for PBXNativeTarget "DrugsForPlants" */;
+			buildPhases = (
+				D93A7E3F29E9A7A300365318 /* Sources */,
+				D93A7E4029E9A7A300365318 /* Frameworks */,
+				D93A7E4129E9A7A300365318 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrugsForPlants;
+			packageProductDependencies = (
+				D93A7E5B29E9A7EC00365318 /* SnapKit */,
+			);
+			productName = DrugsForPlants;
+			productReference = D93A7E4329E9A7A300365318 /* DrugsForPlants.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D93A7E3B29E9A7A300365318 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					D93A7E4229E9A7A300365318 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = D93A7E3E29E9A7A300365318 /* Build configuration list for PBXProject "DrugsForPlants" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D93A7E3A29E9A7A300365318;
+			packageReferences = (
+				D93A7E5A29E9A7EC00365318 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = D93A7E4429E9A7A300365318 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D93A7E4229E9A7A300365318 /* DrugsForPlants */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D93A7E4129E9A7A300365318 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D93A7E5329E9A7A600365318 /* LaunchScreen.storyboard in Resources */,
+				D93A7E5029E9A7A600365318 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D93A7E3F29E9A7A300365318 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D93A7E4B29E9A7A300365318 /* DrugsListViewController.swift in Sources */,
+				D93A7E9829E9F29900365318 /* Colors.swift in Sources */,
+				D93A7E8329E9AE9300365318 /* DrugsResponse.swift in Sources */,
+				D93A7E4729E9A7A300365318 /* AppDelegate.swift in Sources */,
+				D93A7E8529E9AED200365318 /* DrugsCategoriesResponse.swift in Sources */,
+				D93A7E7E29E9AAD400365318 /* UICollectionReusableView+Extension.swift in Sources */,
+				D93A7E8729E9AF3000365318 /* FieldsResponse.swift in Sources */,
+				D93A7E7329E9AA0600365318 /* SectionFactory.swift in Sources */,
+				D93A7E6E29E9A9C200365318 /* CollectionView.swift in Sources */,
+				D93A7E8F29E9DF5C00365318 /* DrugsCollectionCell.swift in Sources */,
+				D93A7E6529E9A85000365318 /* UIVIew+Extension.swift in Sources */,
+				D93A7E8C29E9DE1900365318 /* Box.swift in Sources */,
+				D93A7E9529E9F02A00365318 /* NavigationBar.swift in Sources */,
+				D93A7E9229E9ED2300365318 /* CollectionViewLayoutFactory.swift in Sources */,
+				D93A7E4929E9A7A300365318 /* SceneDelegate.swift in Sources */,
+				D93A7E8929E9B03D00365318 /* FieldFlagsResponse.swift in Sources */,
+				D93A7E7529E9AA1C00365318 /* ConcreteSection.swift in Sources */,
+				D93A7E7129E9A9F100365318 /* Section.swift in Sources */,
+				D93A7E6829E9A8A400365318 /* ApiClient.swift in Sources */,
+				D93A7E7B29E9AA8700365318 /* DrugsListView.swift in Sources */,
+				D93A7E8029E9AB7100365318 /* DrugsListViewModel.swift in Sources */,
+				D93A7E6B29E9A8EC00365318 /* DrugsListApiClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D93A7E5129E9A7A600365318 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93A7E5229E9A7A600365318 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D93A7E5529E9A7A600365318 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D93A7E5629E9A7A600365318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D93A7E5829E9A7A600365318 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V35L3L83F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DrugsForPlants/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmmolod.DrugsForPlants;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D93A7E5929E9A7A600365318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V35L3L83F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DrugsForPlants/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmmolod.DrugsForPlants;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D93A7E3E29E9A7A300365318 /* Build configuration list for PBXProject "DrugsForPlants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D93A7E5529E9A7A600365318 /* Debug */,
+				D93A7E5629E9A7A600365318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D93A7E5729E9A7A600365318 /* Build configuration list for PBXNativeTarget "DrugsForPlants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D93A7E5829E9A7A600365318 /* Debug */,
+				D93A7E5929E9A7A600365318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D93A7E5A29E9A7EC00365318 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D93A7E5B29E9A7EC00365318 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D93A7E5A29E9A7EC00365318 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D93A7E3B29E9A7A300365318 /* Project object */;
+}
