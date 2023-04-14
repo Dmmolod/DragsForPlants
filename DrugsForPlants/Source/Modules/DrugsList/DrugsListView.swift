@@ -13,12 +13,12 @@ protocol DrugsListCollectionViewModel {
 
 final class DrugsListView: UIView {
     
-    var backButtonDidTap: (() -> ())?
-    
     enum Constant {
         static let navBarHeight: CGFloat = 40
         static let collectionTopOffset: CGFloat = 24
     }
+    
+    var backButtonDidTap: (() -> ())?
     
     private lazy var navigationBar = NavigationBar(
         backAction: { [unowned self] in backButtonDidTap?() },
