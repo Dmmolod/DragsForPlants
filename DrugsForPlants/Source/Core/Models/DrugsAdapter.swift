@@ -12,6 +12,7 @@ struct DrugsAdapter {
     static func toDrugsCellViewModel(_ model: Drug) -> DrugsCellViewModel {
         DrugsCellViewModel(
             image: model.image ?? "",
+            backgroundImage: model.categoryImage,
             titleText: model.name,
             descriptionText: model.description
         )

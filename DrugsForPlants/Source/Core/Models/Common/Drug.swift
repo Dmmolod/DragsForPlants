@@ -10,14 +10,18 @@ import Foundation
 struct Drug: Hashable {
     let name: String
     let image: String?
+    let categoryImage: String
     let description: String
 }
 
 extension Drug {
     static func make(with model: DrugsResponse) -> Drug {
-        Drug(
+        let baseImageUrl = "http://shans.d2.i-partner.ru"
+        
+        return Drug(
             name: model.name,
-            image: model.image,
+            image: baseImageUrl + (model.image ?? ""),
+            categoryImage: baseImageUrl + model.categories.image,
             description: model.description
         )
     }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D928E0F429EB087800459E7F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928E0F329EB087800459E7F /* Debouncer.swift */; };
+		D928E0F729EB2FC300459E7F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D928E0F629EB2FC300459E7F /* Kingfisher */; };
+		D928E0F929EB346100459E7F /* DrugsCategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928E0F829EB346100459E7F /* DrugsCategoriesResponse.swift */; };
 		D93A7E4729E9A7A300365318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4629E9A7A300365318 /* AppDelegate.swift */; };
 		D93A7E4929E9A7A300365318 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4829E9A7A300365318 /* SceneDelegate.swift */; };
 		D93A7E4B29E9A7A300365318 /* DrugsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4A29E9A7A300365318 /* DrugsListViewController.swift */; };
@@ -46,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		D928E0F329EB087800459E7F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		D928E0F829EB346100459E7F /* DrugsCategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsCategoriesResponse.swift; sourceTree = "<group>"; };
 		D93A7E4329E9A7A300365318 /* DrugsForPlants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrugsForPlants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93A7E4629E9A7A300365318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93A7E4829E9A7A300365318 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D928E0F729EB2FC300459E7F /* Kingfisher in Frameworks */,
 				D93A7E5C29E9A7EC00365318 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				D93A7E8229E9AE9300365318 /* DrugsResponse.swift */,
+				D928E0F829EB346100459E7F /* DrugsCategoriesResponse.swift */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			name = DrugsForPlants;
 			packageProductDependencies = (
 				D93A7E5B29E9A7EC00365318 /* SnapKit */,
+				D928E0F629EB2FC300459E7F /* Kingfisher */,
 			);
 			productName = DrugsForPlants;
 			productReference = D93A7E4329E9A7A300365318 /* DrugsForPlants.app */;
@@ -394,6 +400,7 @@
 			mainGroup = D93A7E3A29E9A7A300365318;
 			packageReferences = (
 				D93A7E5A29E9A7EC00365318 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D928E0F529EB2FC300459E7F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = D93A7E4429E9A7A300365318 /* Products */;
 			projectDirPath = "";
@@ -435,6 +442,7 @@
 				D9471D7229EA8BF0000A4702 /* UIImageView+Extension.swift in Sources */,
 				D93A7E6529E9A85000365318 /* UIVIew+Extension.swift in Sources */,
 				D93A7E8C29E9DE1900365318 /* Box.swift in Sources */,
+				D928E0F929EB346100459E7F /* DrugsCategoriesResponse.swift in Sources */,
 				D93A7E9529E9F02A00365318 /* NavigationBar.swift in Sources */,
 				D93A7E9229E9ED2300365318 /* CollectionViewLayoutFactory.swift in Sources */,
 				D9471D7529EA8D6E000A4702 /* DrugsAdapter.swift in Sources */,
@@ -670,6 +678,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D928E0F529EB2FC300459E7F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.0.0;
+			};
+		};
 		D93A7E5A29E9A7EC00365318 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -681,6 +697,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D928E0F629EB2FC300459E7F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D928E0F529EB2FC300459E7F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		D93A7E5B29E9A7EC00365318 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D93A7E5A29E9A7EC00365318 /* XCRemoteSwiftPackageReference "SnapKit" */;
