@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D928E0F429EB087800459E7F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928E0F329EB087800459E7F /* Debouncer.swift */; };
 		D93A7E4729E9A7A300365318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4629E9A7A300365318 /* AppDelegate.swift */; };
 		D93A7E4929E9A7A300365318 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4829E9A7A300365318 /* SceneDelegate.swift */; };
 		D93A7E4B29E9A7A300365318 /* DrugsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4A29E9A7A300365318 /* DrugsListViewController.swift */; };
@@ -40,9 +41,11 @@
 		D99539FD29EADEFC006F1067 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99539FC29EADEFC006F1067 /* Result.swift */; };
 		D99539FF29EAE003006F1067 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99539FE29EAE003006F1067 /* ApiError.swift */; };
 		D9953A0129EAF1E0006F1067 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953A0029EAF1E0006F1067 /* Drug.swift */; };
+		D9953A0529EAF7D2006F1067 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953A0429EAF7D2006F1067 /* Pagination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D928E0F329EB087800459E7F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		D93A7E4329E9A7A300365318 /* DrugsForPlants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrugsForPlants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93A7E4629E9A7A300365318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93A7E4829E9A7A300365318 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		D99539FC29EADEFC006F1067 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D99539FE29EAE003006F1067 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		D9953A0029EAF1E0006F1067 /* Drug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
+		D9953A0429EAF7D2006F1067 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,7 @@
 				D9471D7329EA8D5E000A4702 /* Models */,
 				D93A7E8A29E9DE1000365318 /* Box */,
 				D99539FB29EADEF4006F1067 /* Extensions */,
+				D928E0F329EB087800459E7F /* Debouncer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 		D93A7E6329E9A84400365318 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D9953A0429EAF7D2006F1067 /* Pagination.swift */,
 				D93A7E9629E9F29200365318 /* Common */,
 				D93A7E9329E9F02000365318 /* Bar */,
 				D93A7E6C29E9A9B700365318 /* CollectionView */,
@@ -418,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D93A7E4B29E9A7A300365318 /* DrugsListViewController.swift in Sources */,
+				D9953A0529EAF7D2006F1067 /* Pagination.swift in Sources */,
 				D93A7E9829E9F29900365318 /* Colors.swift in Sources */,
 				D93A7E8329E9AE9300365318 /* DrugsResponse.swift in Sources */,
 				D93A7E4729E9A7A300365318 /* AppDelegate.swift in Sources */,
@@ -439,6 +446,7 @@
 				D9953A0129EAF1E0006F1067 /* Drug.swift in Sources */,
 				D93A7E7B29E9AA8700365318 /* DrugsListView.swift in Sources */,
 				D99539FF29EAE003006F1067 /* ApiError.swift in Sources */,
+				D928E0F429EB087800459E7F /* Debouncer.swift in Sources */,
 				D93A7E8029E9AB7100365318 /* DrugsListViewModel.swift in Sources */,
 				D99539FD29EADEFC006F1067 /* Result.swift in Sources */,
 				D9471D7729EA8FFB000A4702 /* DrugsCellView.swift in Sources */,

@@ -9,6 +9,7 @@ import UIKit
 
 final class CollectionView: UICollectionView {
     
+    private var pagination: PaginationEvent?
     private var diffableDataSource: UICollectionViewDiffableDataSource<UUID, AnyHashable>!
     private var sectionsStore: [Section] = []
     
@@ -28,7 +29,8 @@ final class CollectionView: UICollectionView {
     }
     
     //MARK: - API
-    func setup(sections: [Section]) {
+    func setup(sections: [Section], pagination: PaginationEvent? = nil) {
+        self.pagination = pagination
         setupCollection(with: sections)
         update(sections: sections)
     }
@@ -145,5 +147,9 @@ extension CollectionView: UICollectionViewDelegate {
         else { return }
         
         section.didSelect(cell, with: item, at: indexPath)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pagination?.didScroll(scrollView)
     }
 }

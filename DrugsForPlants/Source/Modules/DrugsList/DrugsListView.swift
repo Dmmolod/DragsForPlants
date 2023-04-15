@@ -8,34 +8,27 @@
 import UIKit
 
 protocol DrugsListCollectionViewModel {
+    var paginationEvent: PaginationEvent { get }
     var drugsList: Box<[Drug]> { get }
 }
 
 final class DrugsListView: UIView {
     
-    enum Constant {
+    private enum Constant {
         static let navBarHeight: CGFloat = 40
         static let collectionTopOffset: CGFloat = 24
     }
     
-    var backButtonDidTap: (() -> ())?
-    
-    private lazy var navigationBar = NavigationBar(
-        backAction: { [unowned self] in backButtonDidTap?() },
-        withSearch: true
-    )
-    
+    //MARK: - Private Properties
+    private lazy var navigationBar = NavigationBar()
     private let collectionView = CollectionView()
     
+    //MARK: - Initializers
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
         navigationBar.setTitle(text: "Болезни")
         setupLayout()
-        
-        navigationBar.textFieldDidChangeText = { [unowned self] text in
-            print(text)
-        }
         
         addGestureRecognizer(UITapGestureRecognizer(
             target: self,
@@ -45,7 +38,14 @@ final class DrugsListView: UIView {
     
     required init?(coder: NSCoder) { nil }
     
-    func setupCollection(with model: DrugsListCollectionViewModel) {
+    //MARK: - API
+    func configure(with model: DrugsListViewModel) {
+        setupCollection(with: model)
+        navigationBar.configure(with: model)
+    }
+    
+    //MARK: - Private Methods
+    private func setupCollection(with model: DrugsListCollectionViewModel) {
         let drugsListSection = SectionFactory.drugsSection(
             cellConfiguration: { cell, item, _, _ in
                 let model = DrugsAdapter.toDrugsCellViewModel(item)
@@ -57,12 +57,15 @@ final class DrugsListView: UIView {
             items: model.drugsList
         )
         
-        collectionView.setup(sections: [drugsListSection])
+        collectionView.setup(
+            sections: [drugsListSection],
+            pagination: model.paginationEvent
+        )
     }
 
     @objc
     private func hideKeyboard() {
-        endEditing(true)
+        navigationBar.setSearchButton(isHidden: true)
     }
     
     private func setupLayout() {
