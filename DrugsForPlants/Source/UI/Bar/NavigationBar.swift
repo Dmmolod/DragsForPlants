@@ -98,6 +98,7 @@ extension NavigationBar: UITextFieldDelegate {
 //MARK: - Private Layout
 private extension NavigationBar {
     
+    //MARK: - Search field layout methods
     func hideSearchField(animated: Bool = true) {
         searchField.resignFirstResponder()
         
@@ -137,6 +138,7 @@ private extension NavigationBar {
         }
     }
     
+    //MARK: - Layout
     func setupLayout() {
         addSubview(backButton) {
             $0.bottom.equalToSuperview().inset(8)
@@ -163,6 +165,7 @@ private extension NavigationBar {
         }
     }
     
+    //MARK: - Elements factory
     func makeTextField() -> UITextField {
         let textField = UITextField()
         textField.isHidden = true

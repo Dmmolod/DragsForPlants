@@ -8,7 +8,7 @@
 import UIKit
 
 struct CollectionViewLayoutFactory {
-    static func makeHorizontalGridLayout() -> NSCollectionLayoutSection {
+    static func makeGridLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0)

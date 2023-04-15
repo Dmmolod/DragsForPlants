@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol PaginationEvent {
+protocol PaginationEventHadler {
     func didScroll(_ scrollView: UIScrollView)
 }
 
-final class Pagination: PaginationEvent {
+final class Pagination: PaginationEventHadler {
     
     var action: (() -> ())?
     var offset: Int

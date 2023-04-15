@@ -142,7 +142,9 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
 }
 
 extension DrugsListViewModelImpl {
-    var paginationEvent: PaginationEvent {
+    
+    var paginationEvent: PaginationEventHadler {
         return pagination
     }
+    
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DrugsListCollectionViewModel {
-    var paginationEvent: PaginationEvent { get }
+    var paginationEvent: PaginationEventHadler { get }
     var drugsList: Box<[Drug]> { get }
 }
 
@@ -27,7 +27,6 @@ final class DrugsListView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
-        navigationBar.setTitle(text: "Болезни")
         setupLayout()
         
         addGestureRecognizer(UITapGestureRecognizer(
@@ -52,7 +51,7 @@ final class DrugsListView: UIView {
                 cell.config(with: model)
             },
             layoutConfiguration: { _ in
-                CollectionViewLayoutFactory.makeHorizontalGridLayout()
+                CollectionViewLayoutFactory.makeGridLayout()
             },
             items: model.drugsList
         )
@@ -69,12 +68,10 @@ final class DrugsListView: UIView {
     }
     
     private func setupLayout() {
-        collectionView.contentInset = .init(
-            top: Constant.collectionTopOffset,
-            left: 0,
-            bottom: 0,
-            right: 0
-        )
+        var insets = UIEdgeInsets()
+        insets.top = Constant.collectionTopOffset
+        
+        collectionView.contentInset = insets
         
         addSubview(navigationBar) {
             $0.top.leading.trailing.equalToSuperview()

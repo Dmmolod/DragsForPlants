@@ -10,6 +10,7 @@
 		D928E0F429EB087800459E7F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928E0F329EB087800459E7F /* Debouncer.swift */; };
 		D928E0F729EB2FC300459E7F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D928E0F629EB2FC300459E7F /* Kingfisher */; };
 		D928E0F929EB346100459E7F /* DrugsCategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928E0F829EB346100459E7F /* DrugsCategoriesResponse.swift */; };
+		D92D00E929EB39270066551F /* DrugListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D00E829EB39270066551F /* DrugListFactory.swift */; };
 		D93A7E4729E9A7A300365318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4629E9A7A300365318 /* AppDelegate.swift */; };
 		D93A7E4929E9A7A300365318 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4829E9A7A300365318 /* SceneDelegate.swift */; };
 		D93A7E4B29E9A7A300365318 /* DrugsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A7E4A29E9A7A300365318 /* DrugsListViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		D928E0F329EB087800459E7F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		D928E0F829EB346100459E7F /* DrugsCategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsCategoriesResponse.swift; sourceTree = "<group>"; };
+		D92D00E829EB39270066551F /* DrugListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugListFactory.swift; sourceTree = "<group>"; };
 		D93A7E4329E9A7A300365318 /* DrugsForPlants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrugsForPlants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93A7E4629E9A7A300365318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93A7E4829E9A7A300365318 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D92D00EA29EB39EF0066551F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D93A7E6729E9A8A400365318 /* ApiClient.swift */,
+				D99539F929EADD96006F1067 /* Request.swift */,
+				D99539FE29EAE003006F1067 /* ApiError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		D93A7E3A29E9A7A300365318 = {
 			isa = PBXGroup;
 			children = (
@@ -174,11 +186,11 @@
 		D93A7E6229E9A83C00365318 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D93A7E8B29E9DE1900365318 /* Box.swift */,
+				D928E0F329EB087800459E7F /* Debouncer.swift */,
 				D93A7E6629E9A89B00365318 /* API */,
 				D9471D7329EA8D5E000A4702 /* Models */,
-				D93A7E8A29E9DE1000365318 /* Box */,
 				D99539FB29EADEF4006F1067 /* Extensions */,
-				D928E0F329EB087800459E7F /* Debouncer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -198,9 +210,7 @@
 		D93A7E6629E9A89B00365318 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				D93A7E6729E9A8A400365318 /* ApiClient.swift */,
-				D99539F929EADD96006F1067 /* Request.swift */,
-				D99539FE29EAE003006F1067 /* ApiError.swift */,
+				D92D00EA29EB39EF0066551F /* Common */,
 				D93A7E6929E9A8C500365318 /* ApiClients */,
 			);
 			path = API;
@@ -238,6 +248,7 @@
 		D93A7E7929E9AA7500365318 /* DrugsList */ = {
 			isa = PBXGroup;
 			children = (
+				D92D00E829EB39270066551F /* DrugListFactory.swift */,
 				D93A7E4A29E9A7A300365318 /* DrugsListViewController.swift */,
 				D93A7E7F29E9AB7100365318 /* DrugsListViewModel.swift */,
 				D93A7E7A29E9AA8700365318 /* DrugsListView.swift */,
@@ -262,14 +273,6 @@
 				D928E0F829EB346100459E7F /* DrugsCategoriesResponse.swift */,
 			);
 			path = ResponseModels;
-			sourceTree = "<group>";
-		};
-		D93A7E8A29E9DE1000365318 /* Box */ = {
-			isa = PBXGroup;
-			children = (
-				D93A7E8B29E9DE1900365318 /* Box.swift */,
-			);
-			path = Box;
 			sourceTree = "<group>";
 		};
 		D93A7E8D29E9DF4E00365318 /* Cells */ = {
@@ -452,6 +455,7 @@
 				D93A7E7129E9A9F100365318 /* Section.swift in Sources */,
 				D93A7E6829E9A8A400365318 /* ApiClient.swift in Sources */,
 				D9953A0129EAF1E0006F1067 /* Drug.swift in Sources */,
+				D92D00E929EB39270066551F /* DrugListFactory.swift in Sources */,
 				D93A7E7B29E9AA8700365318 /* DrugsListView.swift in Sources */,
 				D99539FF29EAE003006F1067 /* ApiError.swift in Sources */,
 				D928E0F429EB087800459E7F /* Debouncer.swift in Sources */,

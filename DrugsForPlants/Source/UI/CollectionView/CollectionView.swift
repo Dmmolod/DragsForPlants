@@ -9,10 +9,12 @@ import UIKit
 
 final class CollectionView: UICollectionView {
     
-    private var pagination: PaginationEvent?
+    //MARK: - Private Properties
+    private var pagination: PaginationEventHadler?
     private var diffableDataSource: UICollectionViewDiffableDataSource<UUID, AnyHashable>!
     private var sectionsStore: [Section] = []
     
+    //MARK: - Initializers
     init(sections: [Section] = []) {
         super.init(frame: .zero, collectionViewLayout: .init())
         backgroundColor = .clear
@@ -29,7 +31,7 @@ final class CollectionView: UICollectionView {
     }
     
     //MARK: - API
-    func setup(sections: [Section], pagination: PaginationEvent? = nil) {
+    func setup(sections: [Section], pagination: PaginationEventHadler? = nil) {
         self.pagination = pagination
         setupCollection(with: sections)
         update(sections: sections)
@@ -139,6 +141,7 @@ private extension CollectionView {
     }
 }
 
+//MARK: - Collection View Delegate
 extension CollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let section = section(at: indexPath.section),
