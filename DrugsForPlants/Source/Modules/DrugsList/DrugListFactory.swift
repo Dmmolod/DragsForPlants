@@ -5,7 +5,7 @@
 //  Created by Дмитрий Молодецкий on 15.04.2023.
 //
 
-import Foundation
+import UIKit
 
 struct DrugListFactory {
     static func makeDrugListModule() -> UIViewController {
