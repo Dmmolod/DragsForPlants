@@ -17,7 +17,7 @@ class DrugsListViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
 
-        self.drugsView.setupCollection(with: viewModel)
+        drugsView.configure(with: viewModel)
     }
     
     required init?(coder: NSCoder) { nil }

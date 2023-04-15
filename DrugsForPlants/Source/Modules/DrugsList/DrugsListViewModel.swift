@@ -11,32 +11,89 @@ protocol DrugsListViewModelBaseProtocol {
     func viewDidLoad()
 }
 
-typealias DrugsListViewModel = DrugsListViewModelBaseProtocol & DrugsListCollectionViewModel
+typealias DrugsListViewModel = DrugsListViewModelBaseProtocol
+& DrugsListCollectionViewModel
+& NavigationBarViewModel
 
 final class DrugsListViewModelImpl: DrugsListViewModel {
     
-    var drugsList: Box<[Drug]> = Box([])
-    
-    private let drugsListApiClient: DrugsListApiClient
-    
-    private var currentOffset = 0
-    
-    init(drugsListApiClient: DrugsListApiClient) {
-        self.drugsListApiClient = drugsListApiClient
+    private enum RequestType {
+        case list
+        case search
     }
     
+    //MARK: - Public Properties
+    var drugsList: Box<[Drug]> = Box([])
+    var navBarTitle: Box<String> = Box("Препараты")
+    let pagination = Pagination(isEnabled: false)
+    
+    //MARK: - Private Properties
+    private let drugsListApiClient: DrugsListApiClient
+    private let debouncer = Debouncer()
+    
+    private var responseListStore: [Drug] = []
+    private var responseListLastOffset: Int = 0
+    private var lastSearchText: String = ""
+    
+    private var requestType: RequestType = .list
+    
+    //MARK: - Initializer
+    init(drugsListApiClient: DrugsListApiClient) {
+        self.drugsListApiClient = drugsListApiClient
+        
+        pagination.action = { [weak self] in
+            guard let self else { return }
+            
+            switch self.requestType {
+            case .list: self.fetchDrugs()
+            case .search: self.searchDrugs()
+            }
+        }
+    }
+    
+    //MARK: - Public Methods
     func viewDidLoad() {
         fetchDrugs()
     }
     
-    func search(_ text: String) {
+    func searchTextDidChange(_ text: String) {
+        debouncer.cancel()
+        pagination.reset()
+        
+        if text.isEmpty {
+            changeRequestType(.list)
+            navBarTitle.value = "Препараты"
+            return
+        }
+        
+        navBarTitle.value = text
+        lastSearchText = text
+        changeRequestType(.search)
+        
+        debouncer.debounce { [weak self] in
+            self?.drugsList.value = []
+            self?.searchDrugs(text)
+        }
+    }
+    
+    func backButtonDidTap() {
+        print("Need back")
+    }
+    
+    //MARK: - Private Methods
+    private func searchDrugs(_ text: String? = nil) {
+        let searchText = text ?? lastSearchText
+        
         drugsListApiClient.getDrugsList(
-            search: text,
-            count: 20,
-            offset: 0
+            search: searchText,
+            count: pagination.limit,
+            offset: pagination.offset
         ) { [weak self] result in
             result.onSuccess { [weak self] response in
-                print(response)
+                if !response.isEmpty && self?.debouncer.isCancelled == false {
+                    self?.pagination.success()
+                    self?.drugsResponseDidGet(response)
+                }
             }.onFailure { error in
                 print(error.localizedDescription)
             }
@@ -45,15 +102,47 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
     
     private func fetchDrugs() {
         drugsListApiClient.getDrugsList(
-            count: 20,
-            offset: currentOffset
+            count: pagination.limit,
+            offset: pagination.offset
         ) { [weak self] result in
             result.onSuccess { response in
-                let drugs: [Drug] = response.map { .make(with: $0) }
-                self?.drugsList.value.append(contentsOf: drugs)
+                if !response.isEmpty {
+                    self?.drugsResponseDidGet(response)
+                    self?.pagination.success()
+                    self?.updateResponseListInfo()
+                }
             }.onFailure { error in
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func drugsResponseDidGet(_ response: [DrugsResponse]) {
+        let drugs: [Drug] = response.map { .make(with: $0) }
+        self.drugsList.value.append(contentsOf: drugs)
+    }
+    
+    private func updateResponseListInfo() {
+        responseListStore = drugsList.value
+        responseListLastOffset = pagination.offset
+    }
+    
+    private func changeRequestType(_ newType: RequestType) {
+        guard newType != requestType else { return }
+        requestType = newType
+        
+        if newType == .list {
+            drugsList.value = []
+            drugsList.value = responseListStore
+            
+            pagination.offset = responseListLastOffset
+            pagination.isEnabled = true
+        }
+    }
+}
+
+extension DrugsListViewModelImpl {
+    var paginationEvent: PaginationEvent {
+        return pagination
     }
 }
