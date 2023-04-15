@@ -9,6 +9,7 @@ import UIKit
 
 struct DrugsCellViewModel {
     var image: String
+    var backgroundImage: String
     var titleText: String
     var descriptionText: String
 }
@@ -21,15 +22,14 @@ final class DrugsCellView: UIView {
         static let insets: CGFloat = 12
     }
     
-    private lazy var imageView = makeImageView()
+    private lazy var mainImageView = makeImageView(.scaleAspectFill)
+    private lazy var imageView = makeImageView(.scaleAspectFit)
     private lazy var titleLabel = makeLabel(font: .appTitle, textColor: .black)
     private lazy var descriptionLabel = makeLabel(font: .appDescription, textColor: .appLightGray)
     
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
-        titleLabel.text = "Test test test test test test test test test test test test test test test test test"
-        descriptionLabel.text = "Test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test"
         setAppereance()
         setupLayout()
     }
@@ -38,6 +38,7 @@ final class DrugsCellView: UIView {
 
     func config(with model: DrugsCellViewModel) {
         imageView.setImage(with: model.image)
+        mainImageView.setImage(with: model.backgroundImage)
         titleLabel.text = model.titleText
         descriptionLabel.text = model.descriptionText
     }
@@ -50,6 +51,10 @@ private extension DrugsCellView {
     
     func setupLayout() {
         
+        mainImageView.addSubview(imageView) {
+            $0.edges.equalToSuperview()
+        }
+        
         let vTextStack = UIStackView(arrangedSubviews: [
             titleLabel,
             descriptionLabel
@@ -59,7 +64,7 @@ private extension DrugsCellView {
         vTextStack.alignment = .leading
 
         let vMainStack = UIStackView(arrangedSubviews: [
-            imageView,
+            mainImageView,
             vTextStack
         ])
 
@@ -80,11 +85,11 @@ private extension DrugsCellView {
         layer.shadowOffset = CGSize(width: 0, height: 0.5)
     }
     
-    func makeImageView() -> UIImageView {
+    func makeImageView(_ contentMode: UIView.ContentMode) -> UIImageView {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = contentMode
         imageView.layer.cornerRadius = Constant.radius
-        imageView.backgroundColor = .red
+        imageView.clipsToBounds = true
         
         imageView.snp.makeConstraints {
             $0.height.equalTo(Constant.imageHeight)

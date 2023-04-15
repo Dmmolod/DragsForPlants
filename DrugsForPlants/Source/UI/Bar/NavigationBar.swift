@@ -175,6 +175,7 @@ private extension NavigationBar {
         
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
+        textField.spellCheckingType = .no
         
         return textField
     }
