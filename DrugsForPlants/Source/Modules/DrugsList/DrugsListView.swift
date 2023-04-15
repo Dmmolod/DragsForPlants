@@ -48,7 +48,7 @@ final class DrugsListView: UIView {
     func setupCollection(with model: DrugsListCollectionViewModel) {
         let drugsListSection = SectionFactory.drugsSection(
             cellConfiguration: { cell, item, _, _ in
-                cell.backgroundColor = .purple
+                cell.backgroundColor = .white
             },
             layoutConfiguration: { _ in
                 CollectionViewLayoutFactory.makeHorizontalGridLayout()
