@@ -9,10 +9,10 @@ import UIKit
 
 struct SectionFactory{
     static func drugsSection(
-        cellConfiguration: @escaping (DrugsCollectionCell, AnyHashable, IndexPath, UICollectionView) -> (),
+        cellConfiguration: @escaping (DrugsCollectionCell, Drug, IndexPath, UICollectionView) -> (),
         layoutConfiguration: @escaping (NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection?,
         didSelectAction: ((DrugsCollectionCell, DrugsResponse, IndexPath) -> ())? = nil,
-        items: Box<[AnyHashable]>
+        items: Box<[Drug]>
     ) -> Section {
         ConcreteSection(
             cellConfiguration: cellConfiguration,

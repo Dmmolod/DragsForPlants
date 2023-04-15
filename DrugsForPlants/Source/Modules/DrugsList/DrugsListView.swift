@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DrugsListCollectionViewModel {
-    var drugsList: Box<[AnyHashable]> { get }
+    var drugsList: Box<[Drug]> { get }
 }
 
 final class DrugsListView: UIView {
@@ -48,7 +48,8 @@ final class DrugsListView: UIView {
     func setupCollection(with model: DrugsListCollectionViewModel) {
         let drugsListSection = SectionFactory.drugsSection(
             cellConfiguration: { cell, item, _, _ in
-                cell.backgroundColor = .white
+                let model = DrugsAdapter.toDrugsCellViewModel(item)
+                cell.config(with: model)
             },
             layoutConfiguration: { _ in
                 CollectionViewLayoutFactory.makeHorizontalGridLayout()
