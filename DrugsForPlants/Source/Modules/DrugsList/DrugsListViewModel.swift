@@ -15,7 +15,7 @@ typealias DrugsListViewModel = DrugsListViewModelBaseProtocol & DrugsListCollect
 
 final class DrugsListViewModelImpl: DrugsListViewModel {
     
-    var drugsList: Box<[AnyHashable]> = Box([1,2,3,4,5,6,7,8,9,10,11,12,13,141,55])
+    var drugsList: Box<[Drug]> = Box([])
     
     private let drugsListApiClient: DrugsListApiClient
     
@@ -29,12 +29,31 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
         fetchDrugs()
     }
     
+    func search(_ text: String) {
+        drugsListApiClient.getDrugsList(
+            search: text,
+            count: 20,
+            offset: 0
+        ) { [weak self] result in
+            result.onSuccess { [weak self] response in
+                print(response)
+            }.onFailure { error in
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     private func fetchDrugs() {
         drugsListApiClient.getDrugsList(
             count: 20,
             offset: currentOffset
-        ) { [weak self] in
-            
+        ) { [weak self] result in
+            result.onSuccess { response in
+                let drugs: [Drug] = response.map { .make(with: $0) }
+                self?.drugsList.value.append(contentsOf: drugs)
+            }.onFailure { error in
+                print(error.localizedDescription)
+            }
         }
     }
 }

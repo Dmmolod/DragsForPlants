@@ -9,7 +9,7 @@ import Foundation
 
 struct DrugsAdapter {
     
-    static func toDrugsCellViewModel(_ model: DrugsResponse) -> DrugsCellViewModel {
+    static func toDrugsCellViewModel(_ model: Drug) -> DrugsCellViewModel {
         DrugsCellViewModel(
             image: model.image ?? "",
             titleText: model.name,
