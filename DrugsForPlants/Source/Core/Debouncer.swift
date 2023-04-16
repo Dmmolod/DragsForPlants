@@ -24,15 +24,19 @@ final class Debouncer {
         let id = UUID().uuidString
         currentItemID = id
         
-        workItem = DispatchWorkItem {
+        let item = DispatchWorkItem {
             action(id)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
-            guard let workItem = self?.workItem, workItem.isCancelled == false else { return }
+            guard !item.isCancelled else { return }
             
-            workItem.perform()
+            item.perform()
+            
+            self?.workItem = nil
         }
+        
+        workItem = item
     }
     
     func cancel() {
