@@ -70,9 +70,9 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
         lastSearchText = text
         changeRequestType(.search)
         
-        debouncer.debounce { [weak self] in
+        debouncer.debounce { [weak self] itemID in
             self?.drugsList.value = []
-            self?.searchDrugs(text)
+            self?.searchDrugs(text, itemID: itemID)
         }
     }
     
@@ -81,7 +81,7 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
     }
     
     //MARK: - Private Methods
-    private func searchDrugs(_ text: String? = nil) {
+    private func searchDrugs(_ text: String? = nil, itemID: String? = nil) {
         let searchText = text ?? lastSearchText
         
         drugsListApiClient.getDrugsList(
@@ -90,10 +90,11 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
             offset: pagination.offset
         ) { [weak self] result in
             result.onSuccess { [weak self] response in
-                if !response.isEmpty && self?.debouncer.isCancelled == false {
-                    self?.pagination.success()
-                    self?.drugsResponseDidGet(response)
-                }
+                guard !response.isEmpty else { return }
+                guard itemID == nil || itemID == self?.debouncer.currentItemID else { return }
+                
+                self?.pagination.success()
+                self?.drugsResponseDidGet(response)
             }.onFailure { error in
                 print(error.localizedDescription)
             }

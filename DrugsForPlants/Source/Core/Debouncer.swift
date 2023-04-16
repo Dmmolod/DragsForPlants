@@ -8,8 +8,8 @@
 import Foundation
 
 final class Debouncer {
-    
-    private(set) var isCancelled: Bool = false
+   
+    private(set) var currentItemID: String?
     
     private let delay: TimeInterval
     private var workItem: DispatchWorkItem?
@@ -18,27 +18,27 @@ final class Debouncer {
         self.delay = delay
     }
     
-    func debounce(action: @escaping () -> ()) {
+    func debounce(action: @escaping (String) -> ()) {
         workItem?.cancel()
         
-        let item = DispatchWorkItem(block: action)
+        let id = UUID().uuidString
+        currentItemID = id
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
-            guard !item.isCancelled else { return }
-            
-            item.perform()
-            
-            self?.workItem = nil
+        workItem = DispatchWorkItem {
+            action(id)
         }
         
-        workItem = item
-        isCancelled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+            guard let workItem = self?.workItem, workItem.isCancelled == false else { return }
+            
+            workItem.perform()
+        }
     }
     
     func cancel() {
+        currentItemID = nil
         workItem?.cancel()
         workItem = nil
-        isCancelled = true
     }
     
     deinit {
