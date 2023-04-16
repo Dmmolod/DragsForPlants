@@ -80,7 +80,7 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
         print("Need back")
     }
     
-    //MARK: - Private Methods
+    //MARK: - Private work with API
     private func searchDrugs(_ text: String? = nil, itemID: String? = nil) {
         let searchText = text ?? lastSearchText
         
@@ -118,9 +118,21 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
         }
     }
     
+    //MARK: - Work with response
     private func drugsResponseDidGet(_ response: [DrugsResponse]) {
-        let drugs: [Drug] = response.map { .make(with: $0) }
+        var drugs: [Drug] = response.map { .make(with: $0) }
+        removeDuplicates(&drugs)
+        
         self.drugsList.value.append(contentsOf: drugs)
+    }
+    
+    private func removeDuplicates(_ newDrugs: inout [Drug]) {
+        var exist: [String: String] = Dictionary(uniqueKeysWithValues: drugsList.value.map { ($0.name, "exist") })
+        
+        newDrugs = newDrugs.compactMap {
+            if exist[$0.name] != nil { return nil }
+            return $0
+        }
     }
     
     private func updateResponseListInfo() {
@@ -128,6 +140,7 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
         responseListLastOffset = pagination.offset
     }
     
+    //MARK: - Work with requset type
     private func changeRequestType(_ newType: RequestType) {
         guard newType != requestType else { return }
         requestType = newType
@@ -142,6 +155,7 @@ final class DrugsListViewModelImpl: DrugsListViewModel {
     }
 }
 
+//MARK: - DrugsListCollectionViewModel Property
 extension DrugsListViewModelImpl {
     
     var paginationEvent: PaginationEventHadler {
